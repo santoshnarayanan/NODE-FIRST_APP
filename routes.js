@@ -9,7 +9,7 @@ const requestHandler = (req, res) => {
         //! sending response
         res.write('<html>');
         res.write('<head>');
-        res.write('<title>');
+                res.write('<title>');
         res.write('My New page');
         res.write('</title>');
         res.write('</head>');
@@ -22,6 +22,7 @@ const requestHandler = (req, res) => {
         res.write('</html>');
         return res.end();
     }
+
     // Redirect route
     if (url === '/message' && method === 'POST') {
         //parsing chunks
