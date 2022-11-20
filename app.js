@@ -8,7 +8,8 @@ const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(adminRoutes);
+//use filtering '/admin'
+app.use('/admin',adminRoutes);
 app.use(shopRoutes);
 
 //handling page not found
