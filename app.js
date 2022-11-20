@@ -4,14 +4,14 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const adminRoutes = require('./routes/admin');
+const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 
 //use filtering '/admin'
-app.use('/admin',adminRoutes);
+app.use('/admin',adminData.routes);
 app.use(shopRoutes);
 
 //handling page not found
