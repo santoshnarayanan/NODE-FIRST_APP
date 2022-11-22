@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Shopping Cart
+        title #{docTitle}
         link(rel="stylesheet", href="/css/main.css")
         link(rel="stylesheet", href="/css/product.css")
     body
@@ -15,3 +15,19 @@ html(lang="en")
                         a.active(href="/") Shop
                     li.main-header__item
                         a(href="/admin/add-product") Add Product
+        main
+            .grid
+                if prods.length > 0
+                    each product in prods
+                        .article.card.product-item
+                            .header.card__header
+                                h1.product__title #{product.title}
+                            .div.card__image
+                                .img(src="https://bp5-assets-2.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/11/07115226/bestbooks_FB-1.jpg", alt="A Book")
+                            .div.card__content
+                                .h2.product__price $19.99
+                                .p.product__description A very interesting book about so many even more interesting things!
+                            .card__actions
+                                .button.btn Add to Cart
+                else 
+                    h1 No products

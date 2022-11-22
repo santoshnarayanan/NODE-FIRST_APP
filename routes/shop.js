@@ -8,8 +8,9 @@ const adminData = require('./admin');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
+    const products = adminData.products;
     //render default template engine
-    res.render('shop');
+    res.render('shop',{prods:products, docTitle:'Shop'});
     
 });
 
