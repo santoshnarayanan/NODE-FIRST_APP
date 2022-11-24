@@ -10,8 +10,8 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     const products = adminData.products;
     //render default template engine
-    res.render('shop',{prods:products, pageTitle:'Shop', path: '/'});
-    
+    res.render('shop', { prods: products, pageTitle: 'Shop', path: '/' });
+
 });
 
 module.exports = router;
