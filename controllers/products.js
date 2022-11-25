@@ -15,9 +15,11 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-    const products = Product.fetchAll();
+    const products = Product.fetchAll((products)=>{
     //render default template engine
-    res.render('shop',{prods:products, 
-        pageTitle:'Shop', path: '/'});
+        res.render('shop',{prods:products, 
+            pageTitle:'Shop', path: '/'});
+    });
+    
     
 };
