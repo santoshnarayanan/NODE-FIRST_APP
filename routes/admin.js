@@ -8,8 +8,8 @@ const router = express.Router();
 //filtering request based on method
 router.get('/add-product', adminController.getAddProduct);
 
-router.get('/products',adminController.getProducts);
+router.get('/products', adminController.getProducts);
 
-router.post('/add-product',adminController.postAddProduct);
+router.post('/add-product', adminController.postAddProduct);
 
 module.exports = router;
