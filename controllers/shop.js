@@ -12,6 +12,7 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
+// loading product detail
 exports.getProduct = (req, res, next) => {
     const prodId = req.params.productId;
     Product.findById(prodId,product => {
