@@ -5,7 +5,7 @@ const p = path.join(path.dirname(process.mainModule.filename),
     'data',
     'products.json');
 
-//#region helper function
+//⁡⁣⁣⁢#𝗿𝗲𝗴𝗶𝗼𝗻 𝗵𝗲𝗹𝗽𝗲𝗿 𝗳𝘂𝗻𝗰𝘁𝗶𝗼𝗻⁡
 const getProductsFromFile = (cb) => {
     fs.readFile(p, (err, fileContent) => {
         if (err) {
@@ -14,7 +14,7 @@ const getProductsFromFile = (cb) => {
         cb(JSON.parse(fileContent));
     });
 }
-//#endregion
+//⁡⁣⁣⁢#𝗲𝗻𝗱𝗿𝗲𝗴𝗶𝗼𝗻⁡
 
 const products = [];
 
