@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error');
 const sequelizeDb = require('./util/database');
+const Product = require('./models/product');
+const User = require('./models/user');
 
 const app = express();
 
@@ -24,7 +26,14 @@ app.use(shopRoutes);
 //handling page not found
 app.use(errorController.get404);
 
-sequelizeDb.sync()
+Product.belongsTo(User,{
+    constraints:true,
+    onDelete:'CASCADE'
+});
+
+User.hasMany(Product);
+
+sequelizeDb.sync({force:true})
     .then(result => {
         //console.log(result);
         app.listen(3000);
