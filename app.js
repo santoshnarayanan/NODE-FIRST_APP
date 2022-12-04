@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error');
-const db = require('./util/database');
+const sequelizeDb = require('./util/database');
 
 const app = express();
 
@@ -24,4 +24,11 @@ app.use(shopRoutes);
 //handling page not found
 app.use(errorController.get404);
 
-app.listen(3000);
+sequelizeDb.sync()
+    .then(result => {
+        //console.log(result);
+        app.listen(3000);
+    })
+    .catch(err => { console.log(err) });
+
+
