@@ -15,13 +15,13 @@ exports.postAddProduct = (req, res, next) => {
     const price = req.body.price;
 
     Product.create({
-        title:title,
-        price:price,
-        imageUrl:imageUrl,
-        description:description
+        title: title,
+        price: price,
+        imageUrl: imageUrl,
+        description: description
     })
-    .then(result=>{console.log('Created Product')})
-    .catch(err=>{console.log(err)});
+        .then(result => { console.log('Created Product') })
+        .catch(err => { console.log(err) });
 };
 
 exports.getEditProduct = (req, res, next) => {
@@ -57,14 +57,16 @@ exports.postEditProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-    const products = Product.fetchAll((products) => {
-        res.render('admin/products',
-            {
-                prods: products,
-                pageTitle: 'Admin Products',
-                path: '/admin/products'
-            });
-    });
+    Product.findAll()
+        .then(products => {
+            res.render('admin/products',
+                {
+                    prods: products,
+                    pageTitle: 'Admin Products',
+                    path: '/admin/products'
+                });
+        })
+        .catch(err => console.log(err));
 };
 
 
